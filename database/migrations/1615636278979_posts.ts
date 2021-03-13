@@ -8,6 +8,7 @@ export default class Posts extends BaseSchema {
       table.increments('id').primary()
       table.string('title').notNullable()
       table.text('content').notNullable()
+      table.string('img')
       table.integer('user_id').unsigned()
       table.foreign('user_id').references('users.id')
       table.timestamps(true)
