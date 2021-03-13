@@ -14,7 +14,7 @@ export default class PostsController {
     const payload = await request.validate(PostValidator)
 
     if (payload.img) {
-      const fileName = (payload.title).replace(/ /g, '')
+      const fileName = new Date().getTime()
       await payload.img.move(Application.tmpPath('uploads'), {
         name: `${fileName}.${payload.img.extname}`
       })
@@ -36,7 +36,7 @@ export default class PostsController {
     const post = await Post.findOrFail(params.id)
 
     if (payload.img) {
-      const fileName = (payload.title).replace(/ /g, '')
+      const fileName = new Date().getTime()
       await payload.img.move(Application.tmpPath('uploads'), {
         name: `${fileName}.${payload.img.extname}`
       })

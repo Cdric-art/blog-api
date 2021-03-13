@@ -1,15 +1,15 @@
 import {schema} from '@ioc:Adonis/Core/Validator'
-import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import {HttpContextContract} from '@ioc:Adonis/Core/HttpContext'
 
 export default class PostValidator {
-  constructor (protected ctx: HttpContextContract) {
+  constructor(protected ctx: HttpContextContract) {
   }
 
   public schema = schema.create({
-    title: schema.string(),
-    content: schema.string(),
-    user_id: schema.number(),
-    img: schema.file({
+    title: schema.string.optional(),
+    content: schema.string.optional(),
+    user_id: schema.number.optional(),
+    img: schema.file.optional({
       size: '2mb',
       extnames: ['jpg', 'png', 'jpeg']
     })
