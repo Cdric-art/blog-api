@@ -13,6 +13,6 @@ export default class CommentValidator {
 
 
   public messages = {
-    'pseudo': 'Pseudo obligatoire'
+    'pseudo.required': 'Pseudo is required to comment'
   }
 }
