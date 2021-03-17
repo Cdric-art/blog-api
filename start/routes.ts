@@ -29,11 +29,18 @@ Route.get('/api/admin', 'AuthController.me').middleware('auth')
 Route.post('/api/admin/register', 'AuthController.register')
 Route.post('/api/admin/login', 'AuthController.login')
 
-
 // CRUD Post
-Route
-  .resource('/api/posts', 'PostsController')
-  .apiOnly()
+Route.group(() => {
+  Route.get('/api/posts', 'PostsController.index')
+  Route.get('/api/posts/:id', 'PostsController.show')
+})
+
+Route.group(() => {
+  Route.post('/api/admin/posts', 'PostsController.store')
+  Route.put('/api/admin/posts/:id', 'PostsController.update')
+  Route.delete('/api/admin/posts/:id', 'PostsController.destroy')
+}).middleware('auth')
+
 
 // CRUD Comments
 Route
