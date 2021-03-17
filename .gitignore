@@ -4,3 +4,7 @@ coverage
 .vscode
 .DS_STORE
 .idea
+.env
+tmp
+client/.env
+client/node_modules
