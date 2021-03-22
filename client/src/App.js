@@ -1,10 +1,20 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+import Header from "./components/modules/Header";
+import Home from "./components/pages/Home";
+import Post from "./components/pages/Post";
+
 
 function App() {
   return (
-    <div className="App">
-      {process.env.REACT_APP_URL_API}
-    </div>
+    <Router>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route exact path="/post/:id" component={Post}/>
+      </Switch>
+    </Router>
   );
 }
 
