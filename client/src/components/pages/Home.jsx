@@ -18,7 +18,7 @@ const Home = () => {
 
   return <main className="container">
     {posts ? posts.map(post => (
-      <PostItems key={post.id} post={post} />
+      <PostItems key={post.id} post={post} showDetail={false}/>
     )) : <Loader />}
   </main>
 };

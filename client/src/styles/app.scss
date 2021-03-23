@@ -6,7 +6,8 @@ $black: #222f3e;
 $green: #10ac84;
 $red: #ee5253;
 $blue: #2e86de;
-$bg-light: #dfebf8;
+$bg-light: #EFEFEF;
+$box: 0 3px 6px #00000029;
 
 // Tools
 // ===============
@@ -33,14 +34,13 @@ h2 {
 .container {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem 0;
-  background-color: white;
 }
 
 // Pages
 // ===============
-@import "pages/home";
+
 
 // Modules
 // ===============
 @import "modules/header";
+@import "modules/post";

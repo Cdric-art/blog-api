@@ -1,15 +1,20 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { dateParser } from "../libs/date";
 
-const PostItems = ({ post }) => {
-  return <Link to={`/post/:${post.id}`} className="card">
-    <img src={`${process.env.REACT_APP_PUBLIC_URL}/${post.img}`} alt={post.title} />
+const PostItems = ({ post, showDetail }) => {
+  return <Link to={`/post/${post.id}`} className="card">
     <h2>{post.title}</h2>
-    <p>{post.content}</p>
-    <div>
-      <span>{post.created_at}</span>
-      <span>{post.update_at}</span>
+    <div className="date">
+      <span>Crée le : <br/>{dateParser(post.created_at)}</span>
+      <span>Mis à jour le : <br/>{dateParser(post.updated_at)}</span>
     </div>
+    {showDetail ? (
+      <img src={`../${process.env.REACT_APP_PUBLIC_URL}/${post.img}`} alt={post.title} />
+    ) : (
+      <img src={`${process.env.REACT_APP_PUBLIC_URL}/${post.img}`} alt={post.title} />
+    )}
+    {showDetail && <p>{post.content}</p>}
   </Link>
 };
 

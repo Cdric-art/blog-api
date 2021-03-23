@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/modules/Header";
 import Home from "./components/pages/Home";
 import Post from "./components/pages/Post";
+import Admin from "./components/pages/Admin";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={Home}/>
         <Route exact path="/post/:id" component={Post}/>
+        <Route exact path="/admin" component={Admin}/>
       </Switch>
     </Router>
   );
