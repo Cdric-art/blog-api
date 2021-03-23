@@ -1,7 +1,6 @@
 import { DateTime } from 'luxon'
 import {BaseModel, column, hasMany, HasMany} from '@ioc:Adonis/Lucid/Orm'
 import Comment from "App/Models/Comment";
-import {MultipartFileContract} from "@ioc:Adonis/Core/BodyParser";
 
 export default class Post extends BaseModel {
   @column({ isPrimary: true })
@@ -14,7 +13,7 @@ export default class Post extends BaseModel {
   public content: string
 
   @column()
-  public img: MultipartFileContract | null
+  public img: string | undefined
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime

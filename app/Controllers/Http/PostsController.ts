@@ -1,7 +1,6 @@
 import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Post from "App/Models/Post";
 import Application from "@ioc:Adonis/Core/Application";
-import PostValidator from "App/Validators/PostValidator";
 import Comment from "App/Models/Comment";
 
 export default class PostsController {
@@ -12,16 +11,21 @@ export default class PostsController {
 
   public async store ({ request, response }: HttpContextContract) {
 
-    const payload = await request.validate(PostValidator)
+    const post = new Post()
 
-    if (payload.img) {
-      const fileName = new Date().getTime()
-      await payload.img.move(Application.tmpPath('uploads'), {
-        name: `${fileName}.${payload.img.extname}`
+    if (request.file('img')) {
+      const name = request.file('img')?.clientName
+      await request.file('img')?.move(Application.appRoot + '/client/public/uploads', {
+        name: name
       })
+      post.img = name
     }
 
-    const post = await Post.create(payload)
+    post.title = request.post().title
+    post.content = request.post().content
+    post.user_id = request.post().user_id
+
+    await post.save()
 
     return response.created(post)
 
@@ -36,17 +40,21 @@ export default class PostsController {
 
   public async update ({ params, request }: HttpContextContract) {
 
-    const payload = await request.validate(PostValidator)
     const post = await Post.findOrFail(params.id)
 
-    if (payload.img) {
-      const fileName = new Date().getTime()
-      await payload.img.move(Application.tmpPath('uploads'), {
-        name: `${fileName}.${payload.img.extname}`
+    if (request.file('img')) {
+      const name = request.file('img')?.clientName
+      await request.file('img')?.move(Application.appRoot + '/client/public/uploads', {
+        name: name
       })
+      post.img = name
     }
 
-    return post.merge(payload).save()
+    post.title = request.post().title
+    post.content = request.post().content
+    post.user_id = request.post().user_id
+
+    return post.save()
 
   }
 
