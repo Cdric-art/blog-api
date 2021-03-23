@@ -6,9 +6,9 @@ const Post = () => {
   const { id } = useParams();
 
   return (
-    <div>
-
-    </div>
+    <main className="container">
+      <h2>{id}</h2>
+    </main>
   );
 };
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import Loader from "../modules/Loader";
+import PostItems from "../modules/PostItems";
 
 const Home = () => {
 
@@ -15,12 +16,9 @@ const Home = () => {
       .catch(err => console.error({ err }))
   }, [])
 
-  console.log(posts)
   return <main className="container">
     {posts ? posts.map(post => (
-      <div key={post.id} className="card">
-        {console.log(post.img)}
-      </div>
+      <PostItems key={post.id} post={post} />
     )) : <Loader />}
   </main>
 };
