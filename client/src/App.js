@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Header from "./components/modules/Header";
 import Home from "./components/pages/Home";
 import Post from "./components/pages/Post";
 import Admin from "./components/pages/Admin";
+import axios from "axios";
 
 function App() {
 
   const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    axios({
+      method: 'get',
+      withCredentials: true,
+      url: `${process.env.REACT_APP_URL_API}/admin`,
+    })
+      .then(res => setUser(res.data))
+      .catch(err => console.error({err}))
+  }, [user])
 
   return (
     <Router>

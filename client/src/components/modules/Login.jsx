@@ -14,6 +14,7 @@ const Login = ({login}) => {
 
     axios({
       method: 'post',
+      withCredentials: true,
       url: `${process.env.REACT_APP_URL_API}/admin/login`,
       data: formData
     })
