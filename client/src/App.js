@@ -19,7 +19,7 @@ function App() {
     })
       .then(res => setUser(res.data))
       .catch(err => console.error({err}))
-  }, [user])
+  }, [])
 
   return (
     <Router>
