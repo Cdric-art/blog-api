@@ -13,7 +13,7 @@ export default class Post extends BaseModel {
   public content: string
 
   @column()
-  public img: string | undefined
+  public img: string
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
