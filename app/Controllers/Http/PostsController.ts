@@ -27,7 +27,7 @@ export default class PostsController {
 
     await post.save()
 
-    return response.created(post)
+    return response.status(201).send({message: 'Votre post est publié :)'})
 
   }
 

@@ -39,8 +39,11 @@ h2 {
 // Pages
 // ===============
 @import "pages/login";
+@import "pages/dashboard";
 
 // Modules
 // ===============
 @import "modules/header";
 @import "modules/post";
+@import "modules/loader";
+@import "modules/flash";

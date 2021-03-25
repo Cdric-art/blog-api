@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PostItems from "../modules/PostItems";
 import Loader from "../modules/Loader";
 import axios from "axios";
@@ -22,6 +22,7 @@ const Post = () => {
 
   return (
     <main className="container">
+      <Link to="/">Retour accueil</Link>
       {
         post ? <PostItems key={id} post={post.post} showDetail={true}/>
           : <Loader/>

@@ -1,0 +1,30 @@
+.dashboard {
+
+    .new-post,
+    .update-post {
+        width: 100%;
+        margin-top: 2rem;
+        padding: 1rem;
+        border-radius: 3px;
+        background-color: white;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: $red;
+    }
+
+    .form-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    button {
+        display: block;
+        margin-left: auto;
+    }
+
+}

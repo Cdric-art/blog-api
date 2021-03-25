@@ -1,9 +1,9 @@
 import React from 'react';
 
 const Loader = () => {
-  return <main className="container">
+  return <div className="loader ">
     <h2>Chargement...</h2>
-  </main>
+  </div>
 };
 
 export default Loader;
