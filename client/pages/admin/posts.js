@@ -1,17 +1,14 @@
 import Head from 'next/head'
 import styles from '../../styles/Home.module.css'
-import { UpdatedPostForm } from "../components/PostsForm";
-import axios from "axios";
+import UpdatedPostForm from "../components/UpdatedPostForm";
 import { useState } from "react";
 import Link from "next/link";
-import { FlashMessage } from "../components/FlashMessage";
+import FlashMessage from "../components/FlashMessage";
 
 export default function Home({ data }) {
 
     const [success, setSuccess] =useState(null)
     const [errors, setErrors] =useState(null)
-
-
 
     return (
         <div className={styles.container}>

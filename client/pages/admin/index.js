@@ -3,9 +3,8 @@ import styles from '../../styles/Home.module.css'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { CreatedPostForm } from "../components/PostsForm";
-import { FlashMessage } from "../components/FlashMessage";
-import Image from "next/image";
+import CreatedPostForm from "../components/CreatedPostsForm";
+import FlashMessage from "../components/FlashMessage";
 import Link from "next/link";
 
 export default function Home() {
