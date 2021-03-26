@@ -4,7 +4,7 @@ import User from 'App/Models/User'
 export default class AuthController {
 
   public async me ({ auth }: HttpContextContract) {
-    return auth.user
+    await auth.user
   }
 
   public async login ({ auth, request }: HttpContextContract) {
