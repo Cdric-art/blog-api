@@ -1,0 +1,32 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.flash {
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  padding: .3rem .5rem;
+  border-radius: 3px;
+}
+
+.error {
+  background-color: #ee5253;
+}
+
+.success {
+  background-color: #10ac84;
+}
